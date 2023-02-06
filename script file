@@ -1,3 +1,4 @@
+//scroll on boddy class
 <script>
 	jQuery( document ).ready(function() {
 var targetDiv = jQuery('body');
@@ -16,3 +17,14 @@ jQuery(window).scroll(function() {
 });
 	});
 </script>
+
+// diffrent body class add on diffrent page.
+function add_page_slug_to_the_body( $classes ) {
+
+global $post;
+if ( isset( $post ) ) {
+    $classes[] = $post->post_type . '_' . $post->post_name;
+  }
+  return $classes;
+}
+add_filter( 'body_class', 'add_page_slug_to_the_body' );
