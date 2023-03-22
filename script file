@@ -28,3 +28,36 @@ if ( isset( $post ) ) {
   return $classes;
 }
 add_filter( 'body_class', 'add_page_slug_to_the_body' );
+
+
+function add_announcement_settings() {
+    // Add a new section to the "General" settings page
+    add_settings_section('announcement_section', 'Announcement', 'announcement_section_callback', 'general');
+    
+    // Add a new field to the "Announcement" section
+    add_settings_field('announcement_text', 'Announcement Text', 'announcement_text_callback', 'general', 'announcement_section');
+    
+    // Register the "announcement_text" setting
+    register_setting('general', 'announcement_text');
+}
+add_action('admin_init', 'add_announcement_settings');
+
+function announcement_section_callback() {
+    echo '<p>Enter your announcement text below.</p>';
+}
+
+
+function announcement_text_callback() {
+    $announcement_text = get_option('announcement_text');
+    echo '<input type="text" id="announcement_text" name="announcement_text" value="' . $announcement_text . '" />';
+}
+
+
+//Added announcement_text in header
+function announcement_text_callback1() {
+    $announcement_text = get_option('announcement_text');
+    ?>
+    <p class="announcement_topbar"><?php echo $announcement_text; ?></p>
+    <?php
+}
+add_shortcode( 'announcement_text_callback', 'announcement_text_callback1' );
