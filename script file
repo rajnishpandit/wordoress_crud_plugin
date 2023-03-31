@@ -33,6 +33,7 @@ add_filter( 'body_class', 'add_page_slug_to_the_body' );
 function add_announcement_settings() {
     // Add a new section to the "General" settings page
     add_settings_section('announcement_section', 'Announcement', 'announcement_section_callback', 'general');
+
     
     // Add a new field to the "Announcement" section
     add_settings_field('announcement_text', 'Announcement Text', 'announcement_text_callback', 'general', 'announcement_section');
@@ -61,3 +62,14 @@ function announcement_text_callback1() {
     <?php
 }
 add_shortcode( 'announcement_text_callback', 'announcement_text_callback1' );
+-----------------------------------------------------------------------
+Easy UTM Builder PLUGIN
+do_shortcode('[encryption_script]');
+
+https://indybytes.com/rockhampartners/
+https://giftgiversgalore.com/
+https://experience.afrotech.com/
+https://tehama700stag.wpengine.com/
+http://www.ksiconference.com/dev/
+https://md3propertysolutions.wpcomstaging.com/
+https://jbbeautyco.com.au/
